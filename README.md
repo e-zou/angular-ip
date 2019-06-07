@@ -2,7 +2,7 @@
 Quick IP address info lookup tool created with the Angular Framework, Express, &amp; IP Stack
 
 ## Quick Start
-Make sure you these first:
+Make sure you have these first:
 - npm 
 - node.js
 - angular
