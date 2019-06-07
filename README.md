@@ -13,13 +13,21 @@ git clone git clone https://github.com/e-zou/angular-ip.git
 Start server:
 ```
 cd angular-ip
+```
+```
 cd backend
+```
+```
 node index.js
 ```
 
 Start app: 
 ```
 cd angular-app
+```
+```
 npm install
+```
+```
 npm start
 ```
