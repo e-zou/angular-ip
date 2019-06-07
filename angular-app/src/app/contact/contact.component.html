@@ -13,7 +13,7 @@
     </label>
     <label>
       Last Name:
-      <textarea formControlName="lastName"></textarea>
+      <input type="text" formControlName="lastName"/>
       <div *ngIf="submitted && messageForm.controls.lastName.errors" class="error">
         <div *ngIf="messageForm.controls.message.errors.required">Your last name is required</div>
       </div>
@@ -21,7 +21,7 @@
 
     <label>
       Email:
-      <textarea formControlName="email"></textarea>
+      <input type="text" formControlName="email"/>
       <div *ngIf="submitted && messageForm.controls.email.errors" class="error">
         <div *ngIf="messageForm.controls.message.errors.required">Your email is required</div>
       </div>
