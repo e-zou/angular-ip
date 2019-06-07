@@ -8,7 +8,9 @@ Make sure you these first:
 - angular
 
 To see this project in your own browser:
+```
 git clone git clone https://github.com/e-zou/angular-ip.git
+```
 
 Start server:
 ```
