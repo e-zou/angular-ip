@@ -1,6 +1,11 @@
 # angular-ip
 Quick IP address info lookup tool created with the Angular Framework, Express, &amp; IP Stack
 
+# Built with
+* Angular 7
+* Express
+* IP Stack API
+
 ## Quick Start
 Make sure you have these first:
 - npm 
