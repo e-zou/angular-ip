@@ -12,6 +12,7 @@ import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
 import { DataService } from './data.service';
 import { from } from 'rxjs';
+import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { from } from 'rxjs';
     NavComponent,
     AboutComponent,
     ContactComponent,
-    HomeComponent
+    HomeComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

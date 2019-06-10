@@ -1,0 +1,12 @@
+<form [formGroup]="searchForm" class="searchForm" (ngSubmit)="searchIp(query)">
+    <input formControlName="input" class="search" [(ngModel)]="query" placeholder="Search ip address..." type="text"/>
+    <button class="cta" (click)= "searchIp(query)">Go</button>
+    <!-- <input formControlName="input" class="search" [(ngModel)]="query" placeholder="Search for your ip address..." type="text"/> -->
+</form>
+
+<ul *ngIf="ip">
+  <li><p>IP address: {{ ip.ip }}</p></li>
+  <li><p>Country: {{ ip.country }} {{ ip.flag }} </p></li>
+  <li><p>City & Region: {{ ip.city }} , {{ ip.region }}</p></li>
+  <li><p>Zip: {{ ip.zip }}</p></li>
+</ul>
