@@ -28,11 +28,11 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.data.getIp().subscribe(data => {
-      this.ip = data
-      this.myip = data
-      console.log(this.ip)
-    })
+    // this.data.getIp().subscribe(data => {
+    //   this.ip = data
+    //   this.myip = data
+    //   console.log(this.ip)
+    // })
   }
 
 }

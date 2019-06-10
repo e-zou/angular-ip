@@ -5,8 +5,8 @@
 </form>
 
 <ul *ngIf="ip">
-  <li><p>IP address: {{ ip.ip }}</p></li>
-  <li><p>Country: {{ ip.country }} {{ ip.flag }} </p></li>
-  <li><p>City & Region: {{ ip.city }} , {{ ip.region }}</p></li>
-  <li><p>Zip: {{ ip.zip }}</p></li>
+  <li *ngIf="ip.ip"><p>IP address: {{ ip.ip }}</p></li>
+  <li *ngIf="ip.country"><p>Country: {{ ip.country }} {{ ip.flag }} </p></li>
+  <li *ngIf="ip.city"><p>City & Region: {{ ip.city }} , {{ ip.region }}</p></li>
+  <li *ngIf="ip.zip"><p>Zip: {{ ip.zip }}</p></li>
 </ul>

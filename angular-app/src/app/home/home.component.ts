@@ -8,6 +8,7 @@ import { DataService } from '../data.service';
 })
 export class HomeComponent implements OnInit {
   myip: Object;
+  
 
   // When we want to access data, refer it to data
   constructor(private data: DataService) {

@@ -1,0 +1,28 @@
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 500px;
+}
+.ipInfo {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    .ipDetails {
+        text-align: left;
+        span {
+            font-weight: bold;
+        }
+    }
+}
+.background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url(../../assets/nasa.jpg);
+}

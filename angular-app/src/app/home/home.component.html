@@ -1,15 +1,25 @@
-<h1>Home</h1>
+<div class="hero">
+  <div class="background"></div>
+  <div class="ipInfo">
+    <h2>About Your IP</h2>
+    <div class="ipDetails">
+      <div *ngIf="myip.ip"><span>IP Address:</span> {{ myip.ip }}</div>
+      <div *ngIf="myip.country"><span>Country:</span> {{ myip.country }} {{ myip.flag }} </div>
+      <div *ngIf="myip.city"><span>City & Region: </span>{{ myip.city }} , {{ myip.region }}</div>
+      <div *ngIf="myip.zip"><span>Zip:</span> {{ myip.zip }}</div>
+    </div>
+  </div>
+</div>
 
-<div *ngIf="myip">Your ip: {{ myip.ip }}</div>
 <br>
-<div> Random ip: </div>
-<div> 
+<!-- <div> Random ip: </div> -->
+<!-- <div> 
     125.2.105.167 <br>
     192.178.247.82 <br>
     61.138.13.127 <br>
     228.207.9.182 <br>
     181.42.195.14 <br>
-</div>
+</div> -->
 <br>
 
 <app-search></app-search>
