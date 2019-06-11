@@ -1,12 +1,35 @@
-<form [formGroup]="searchForm" class="searchForm" (ngSubmit)="searchIp(query)">
-    <input formControlName="input" class="search" [(ngModel)]="query" placeholder="Search ip address..." type="text"/>
-    <button class="cta" (click)= "searchIp(query)">Go</button>
-    <!-- <input formControlName="input" class="search" [(ngModel)]="query" placeholder="Search for your ip address..." type="text"/> -->
-</form>
-
-<ul *ngIf="ip">
-  <li *ngIf="ip.ip"><p>IP address: {{ ip.ip }}</p></li>
-  <li *ngIf="ip.country"><p>Country: {{ ip.country }} {{ ip.flag }} </p></li>
-  <li *ngIf="ip.city"><p>City & Region: {{ ip.city }} , {{ ip.region }}</p></li>
-  <li *ngIf="ip.zip"><p>Zip: {{ ip.zip }}</p></li>
-</ul>
+<div class="background">
+  <h1>IP Address Search</h1>
+  <div class="ipInfo">
+        <div *ngIf="myip.ip"><span>Your IP Address: </span>{{ myip.ip }}</div>
+        <div *ngIf="myip.flag">{{ myip.flag }}</div>
+  </div>
+  <form [formGroup]="searchForm" class="searchForm" (ngSubmit)="searchIp(query)">
+      <input formControlName="input" class="search" [(ngModel)]="query" placeholder="Search ip address..." type="text"/>
+      <button class="cta" (click)= "searchIp(query)">Go</button>
+      <!-- <input formControlName="input" class="search" [(ngModel)]="query" placeholder="Search for your ip address..." type="text"/> -->
+  </form>
+</div>
+<div class="information">
+  <div class="ipDetails">
+    <h2>IP Data</h2>
+    <ul *ngIf="ip">
+      <li *ngIf="ip.ip"><p>IP address: {{ ip.ip }}</p></li>
+      <li *ngIf="ip.country"><p>Country: {{ ip.country }} {{ ip.flag }} </p></li>
+      <li *ngIf="ip.city"><p>City & Region: {{ ip.city }} , {{ ip.region }}</p></li>
+      <li *ngIf="ip.zip"><p>Zip: {{ ip.zip }}</p></li>
+      <li *ngIf="ip.lat"><p>Latitude & Longitude: {{ ip.lat }}, {{ ip.long }}</p></li>
+    </ul>
+  </div>
+  <div class="countryDetails">
+    <h2>{{ countryData.name }} Data</h2>
+    <ul *ngIf="countryData">
+        <li *ngIf="countryData.nativeName"><p>Native Name: {{ countryData.nativeName  }} </p></li>
+        <li *ngIf="countryData.capital"><p>Capital: {{ countryData.capital }}</p></li>
+        <li *ngIf="countryData.population"><p>Population: {{ countryData.population }}</p></li>
+        <li *ngIf="countryData.currNames"><p>Currency: {{ countryData.currNames[0] }}</p></li>
+        <li *ngIf="countryData.languages"><p>Language: {{ countryData.languages[0] }}</p></li>
+        <li *ngIf="countryData.gini"><p>Gini: {{ countryData.gini }}</p></li>
+      </ul>
+  </div>
+</div>

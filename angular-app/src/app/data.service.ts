@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class DataService {
 
   private query: string;
+  private country: string;
 
   constructor(private http: HttpClient) { 
 
@@ -18,5 +19,13 @@ export class DataService {
 
   searchIp(query) {
     return this.http.get('/ip/' + query);
+  }
+
+  getCountry() {
+    return this.http.get('/country');
+  }
+
+  searchCountry(country) {
+    return this.http.get('/country/' + country);
   }
 }

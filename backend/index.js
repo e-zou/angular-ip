@@ -41,9 +41,12 @@ app.get('/ip/:ipAddress', (req, res) => {
                       country: data.country_name,
                       zip: data.zip,
                       capital: location.capital,
-                      flag: location.country_flag_emoji
+                      flag: location.country_flag_emoji,
+                      lat: data.latitude,
+                      long: data.longitude,
+                      capital: data.capital
                      };
-        console.dir(result.data)
+        // console.dir(result.data)
         res.send(ipInfo)
         
       }
@@ -63,34 +66,97 @@ app.get('/ip', (req, res) => {
                       country: data.country_name,
                       zip: data.zip,
                       capital: location.capital,
-                      flag: location.country_flag_emoji
+                      flag: location.country_flag_emoji,
+                      lat: data.latitude,
+                      long: data.longitude,
+                      capital: data.capital
                      };
         res.send(ipInfo)
       }
     )
 })
 
-// require('dotenv').config({ path: './../.env' });
-// const API_KEY = process.env.ANGULAR_API_KEY;
+// Facts: name, nativeName, capital, population, timezone, currencies[0].name, currencies[0].symbol, languages[0].name, gini 
+app.get('/country/:countryName', (req, res)=> {
+  let country = ""
+  if (req.params.countryName.toLowerCase() == "united states") {
+    country = "united states of america"
+  } else {
+    country = req.params.countryName.toLowerCase();
+  }
+  let url = 'https://restcountries.eu/rest/v2/name/' + country + "?fullText=true"
+  axios.get(url).then(
+    (result) => {
+      let data = result.data[0]
+      // Get currency info
+      let currencies = data.currencies
+      let currNames = []
+      let currSymbols = []
+      for (currency in currencies) {
+        // console.dir(currencies[currency].name);
+        currNames.push(currencies[currency].name);
+        currSymbols.push(currencies[currency].symbol);
+      }
+      // Get languages
+      let languages = data.languages
+      let langData = []
+      for (language in languages) {
+        langData.push(languages[language].name);
+      }
+      // Format numbers
+      let popnum = data.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
-// var axios = require('axios');
-// var express = require('express');
-// var cors = require('cors');
-// var app = express();
+      // Data Array
+      let dataArr = [];
+      dataArr.push({
+        name: data.name,
+        nativeName: data.nativeName,
+        capital: data.capital,
+        population: popnum,
+        currencyName: currNames,
+        currencySymbols: currSymbols,
+        languages: langData,
+        gini: data.gini
+      })
+      res.send(dataArr[0])
+    }
+  )
+})
 
-
-// // Then use it before your routes are set up:
-// app.use(cors());
-
-// const port = process.env.PORT || 5000
-
-
-// app.get('/ip', function(req, res) {
-//     let url = "http://api.ipstack.com/199.111.227.155?access_key=" + API_KEY;
-//     axios.get(url).then(respond => {
-//        console.dir(respond.data)
-//        res.send(respond.data)
-//     })
-// });
-
-// app.listen(port, () => console.log(API_KEY))
+// Facts: name, nativeName, capital, population, timezone, currencies[0].name, currencies[0].symbol, languages[0].name, gini 
+app.get('/country', (req, res)=> {
+  let url = 'https://restcountries.eu/rest/v2/name/' + "philippines"
+  axios.get(url).then(
+    (result) => {
+      let data = result.data[0]
+      // Get currency info
+      let currencies = data.currencies
+      let currNames = []
+      let currSymbols = []
+      for (currency in currencies) {
+        // console.dir(currencies[currency].name);
+        currNames.push(currencies[currency].name);
+        currSymbols.push(currencies[currency].symbol);
+      }
+      // Get languages
+      let languages = data.languages
+      let langData = []
+      for (language in languages) {
+        langData.push(languages[language].name);
+      }
+      // Data Array
+      let dataArr = [];
+      dataArr.push({
+        name: data.name,
+        nativeName: data.nativeName,
+        capital: data.capital,
+        population: data.population,
+        currencyName: currNames,
+        currencySymbols: currSymbols,
+        languages: langData,
+        gini: data.gini
+      })
+      res.send(dataArr[0])
+    }
+  )
+})

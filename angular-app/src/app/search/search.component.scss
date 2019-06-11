@@ -1,26 +1,38 @@
-ul {
-    list-style-type: none;
-    margin: 0;padding: 0;
-    li {
-        background: rgb(238, 238, 238);
-        padding: 2em;
-        border-radius: 4px;
-        margin-bottom: 7px;
-        grid-template-columns: 60px auto;
 
-        p {
-            font-weight: bold;
-            margin-left: 20px;
-        }
-
-        img {
-            border-radius: 50%;
+.background {
+    background-image: url(../../assets/nasa.jpg);
+    height: 500px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    form {
+        width: 80%;
+    }
+}
+.information {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    .countryDetails {
+        width: 45%;
+    }
+    .ipDetails {
+        width: 45%;
+        .ip {
             width: 100%;
         }
     }
 }
-
-
+.ipInfo{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1%;
+    color: rgb(238, 238, 238);
+}
 input, textarea {
     display: block;
     width: 50%;
@@ -55,14 +67,22 @@ input, textarea {
     font-family: 'Montserrat';
 }
 
-.results {
-    margin-top: 50px;
+ul {
+    list-style-type: none;
+    margin: 0;padding: 0;
+    background: rgb(238, 238, 238);
+    li {
+        padding: 1.5em;
+        border-radius: 4px;
+        margin-bottom: 7px;
+        grid-template-columns: 60px auto;
+        p {
+            margin-left: 20px;
+        }
 
-    strong {
-        display: block;
-    }
-    span {
-        margin-bottom: 20px;
-        display: block;
+        img {
+            border-radius: 50%;
+            width: 100%;
+        }
     }
 }
